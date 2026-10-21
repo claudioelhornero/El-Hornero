@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subir fotos — El Hornero</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .caja-subida {
+    max-width: 560px;
+    margin: 70px auto;
+    padding: 0 24px;
+  }
+  .panel {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    padding: 34px;
+  }
+  #zona-arrastre {
+    border: 3px dashed var(--ladrillo);
+    padding: 50px 20px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--mortero-oscuro);
+  }
+  #zona-arrastre.encima { background: #f0e2c9; }
+  #zona-arrastre p { margin: 0; font-size: 1.05rem; color: var(--carbon); }
+  #zona-arrastre .chico { font-size: 0.9rem; color: var(--carbon-suave); margin-top: 6px; }
+  #estado { margin-top: 20px; font-size: 0.95rem; }
+  .fila-clave {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 30px;
+  }
+  .fila-clave input {
+    flex: 1; padding: 10px; border: 1px solid var(--linea); font-size: 15px;
+  }
+  .fila-antes-despues {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 500px) { .fila-antes-despues { grid-template-columns: 1fr; } }
+  .etiqueta-antes-despues {
+    font-family: var(--fuente-titulo);
+    font-size: 1.05rem;
+    color: var(--celeste-oscuro);
+    margin: 0 0 8px 0;
+  }
+  .zona-chica {
+    border: 3px dashed var(--celeste-medio);
+    border-radius: 10px;
+    padding: 26px 10px;
+    text-align: center;
+    cursor: pointer;
+    background: var(--celeste-claro);
+    font-size: 0.92rem;
+  }
+  .zona-chica.encima { background: #d3ecf6; }
+  .zona-chica p { margin: 0; }
+  .estado-chico { margin-top: 10px; font-size: 0.88rem; min-height: 1.2em; }
+</style>
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="envoltorio">
+    <a href="index.html" class="marca">
+      <img src="logo.png" alt="Logo El Hornero">
+      <span>El Hornero</span>
+    </a>
+  </div>
+</header>
+
+<div class="caja-subida">
+
+  <div id="pantalla-clave" class="panel">
+    <h2 style="margin-bottom: 6px;">Subir fotos de la obra</h2>
+    <p style="color: var(--carbon-suave); margin-bottom: 22px;">Ingresá la clave para poder subir fotos.</p>
+    <div class="fila-clave">
+      <input type="password" id="clave" placeholder="Clave">
+      <button class="boton" onclick="verificarClave()">Entrar</button>
+    </div>
+    <p style="font-size: 0.85rem; color: var(--carbon-suave);">
+      Esta clave es solo para que nadie que encuentre el link suba fotos sin querer.
+      No reemplaza una seguridad real — no compartas este link públicamente.
+    </p>
+  </div>
+
+  <div id="pantalla-subida" class="panel" style="display:none;">
+    <h2 style="margin-bottom: 6px;">Subir fotos de la obra</h2>
+    <p style="color: var(--carbon-suave); margin-bottom: 22px;">
+      Arrastrá las fotos acá abajo (o tocá para elegirlas desde la galería del celular).
+      Podés elegir varias juntas. Se suben solas, sin poner nombre ni descripción.
+    </p>
+
+    <div id="zona-arrastre">
+      <p>📷 Arrastrá y soltá las fotos acá</p>
+      <p class="chico">o tocá para elegirlas desde tu celular o compu</p>
+    </div>
+    <input type="file" id="selector-archivos" accept="image/*" multiple style="display:none;">
+
+    <div id="estado"></div>
+  </div>
+
+  <div id="pantalla-antes-despues" class="panel" style="display:none; margin-top: 24px;">
+    <h2 style="margin-bottom: 6px;">Antes &amp; Después</h2>
+    <p style="color: var(--carbon-suave); margin-bottom: 22px;">
+      Cuando termines un trabajo, subí primero la foto de "antes" acá, y cuando quieras, la de "después" al lado.
+      Se van emparejando solas, en el orden en que las subís — no hay límite de cantidad.
+    </p>
+    <div class="fila-antes-despues">
+      <div>
+        <p class="etiqueta-antes-despues">Antes</p>
+        <div id="zona-antes" class="zona-chica">
+          <p>📷 Arrastrá la foto de "antes"</p>
+        </div>
+        <input type="file" id="selector-antes" accept="image/*" multiple style="display:none;">
+        <div id="estado-antes" class="estado-chico"></div>
+      </div>
+      <div>
+        <p class="etiqueta-antes-despues">Después</p>
+        <div id="zona-despues" class="zona-chica">
+          <p>📷 Arrastrá la foto de "después"</p>
+        </div>
+        <input type="file" id="selector-despues" accept="image/*" multiple style="display:none;">
+        <div id="estado-despues" class="estado-chico"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="config.js"></script>
+<script>
+  // La clave vive solo en este archivo, como un filtro simple.
+  // Cambiala vos mismo acá cuando quieras.
+  const CLAVE_CORRECTA = "hornero2026";
+
+  function verificarClave() {
+    const valor = document.getElementById('clave').value;
+    if (valor === CLAVE_CORRECTA) {
+      document.getElementById('pantalla-clave').style.display = 'none';
+      document.getElementById('pantalla-subida').style.display = 'block';
+      document.getElementById('pantalla-antes-despues').style.display = 'block';
+    } else {
+      alert('Clave incorrecta.');
+    }
+  }
+
+  const zona = document.getElementById('zona-arrastre');
+  const selector = document.getElementById('selector-archivos');
+  const estado = document.getElementById('estado');
+
+  zona.addEventListener('click', () => selector.click());
+
+  ['dragenter', 'dragover'].forEach(evento => {
+    zona.addEventListener(evento, e => {
+      e.preventDefault();
+      zona.classList.add('encima');
+    });
+  });
+  ['dragleave', 'drop'].forEach(evento => {
+    zona.addEventListener(evento, e => {
+      e.preventDefault();
+      zona.classList.remove('encima');
+    });
+  });
+  zona.addEventListener('drop', e => {
+    const archivos = e.dataTransfer.files;
+    subirArchivos(archivos);
+  });
+  selector.addEventListener('change', e => {
+    subirArchivos(e.target.files);
+  });
+
+  async function subirArchivos(listaArchivos) {
+    const archivos = Array.from(listaArchivos).filter(a => a.type.startsWith('image/'));
+    if (archivos.length === 0) return;
+
+    estado.innerHTML = `Subiendo 0 de ${archivos.length}…`;
+    let listas = 0;
+
+    for (const archivo of archivos) {
+      const datos = new FormData();
+      datos.append('file', archivo);
+      datos.append('upload_preset', CONFIG.UPLOAD_PRESET);
+      datos.append('tags', CONFIG.ETIQUETA_MURO);
+
+      try {
+        const resp = await fetch(
+          `https://api.cloudinary.com/v1_1/${CONFIG.CLOUD_NAME}/image/upload`,
+          { method: 'POST', body: datos }
+        );
+        if (!resp.ok) throw new Error('fallo de subida');
+        listas++;
+        estado.innerHTML = `Subiendo ${listas} de ${archivos.length}…`;
+      } catch (err) {
+        estado.innerHTML = `Hubo un problema subiendo "${archivo.name}". Revisá tu conexión y probá de nuevo.`;
+        return;
+      }
+    }
+
+    estado.innerHTML = `✅ Listo, se subieron ${listas} foto(s). Ya están en la página principal.`;
+  }
+
+  // ---- Antes y Después ----
+  function conectarZonaChica(idZona, idSelector, idEstado, etiqueta) {
+    const zona = document.getElementById(idZona);
+    const selector = document.getElementById(idSelector);
+    const estadoChico = document.getElementById(idEstado);
+
+    zona.addEventListener('click', () => selector.click());
+    ['dragenter', 'dragover'].forEach(ev => zona.addEventListener(ev, e => { e.preventDefault(); zona.classList.add('encima'); }));
+    ['dragleave', 'drop'].forEach(ev => zona.addEventListener(ev, e => { e.preventDefault(); zona.classList.remove('encima'); }));
+    zona.addEventListener('drop', e => subirAntesDespues(e.dataTransfer.files, etiqueta, estadoChico));
+    selector.addEventListener('change', e => subirAntesDespues(e.target.files, etiqueta, estadoChico));
+  }
+
+  async function subirAntesDespues(listaArchivos, etiqueta, estadoChico) {
+    const archivos = Array.from(listaArchivos).filter(a => a.type.startsWith('image/'));
+    if (archivos.length === 0) return;
+
+    estadoChico.innerHTML = `Subiendo 0 de ${archivos.length}…`;
+    let listas = 0;
+
+    for (const archivo of archivos) {
+      const datos = new FormData();
+      datos.append('file', archivo);
+      datos.append('upload_preset', CONFIG.UPLOAD_PRESET);
+      datos.append('tags', etiqueta);
+
+      try {
+        const resp = await fetch(
+          `https://api.cloudinary.com/v1_1/${CONFIG.CLOUD_NAME}/image/upload`,
+          { method: 'POST', body: datos }
+        );
+        if (!resp.ok) throw new Error('fallo de subida');
+        listas++;
+        estadoChico.innerHTML = `Subiendo ${listas} de ${archivos.length}…`;
+      } catch (err) {
+        estadoChico.innerHTML = `Hubo un problema. Probá de nuevo.`;
+        return;
+      }
+    }
+    estadoChico.innerHTML = `✅ Listo, se subió.`;
+  }
+
+  conectarZonaChica('zona-antes', 'selector-antes', 'estado-antes', CONFIG.ETIQUETA_ANTES);
+  conectarZonaChica('zona-despues', 'selector-despues', 'estado-despues', CONFIG.ETIQUETA_DESPUES);
+
+</script>
+
+</body>
+</html>

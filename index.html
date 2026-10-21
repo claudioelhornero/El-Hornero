@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Hornero — Construcción y refacciones</title>
+<meta name="description" content="El Hornero: albañilería, electricidad, revoques, cerámicos, aberturas y refacciones integrales. Trabajos prolijos, hechos para durar.">
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="envoltorio">
+    <a href="#inicio" class="marca">
+      <img src="logo.png" alt="Logo El Hornero">
+      <span>El Hornero</span>
+    </a>
+    <nav class="nav-principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#muro">Obras</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="envoltorio">
+    <span class="hero-etiqueta">🏗 Construcción &amp; Refacciones · Zona Sur</span>
+    <h1>Se construye para que dure.</h1>
+    <p>El hornero levanta su nido con barro, pasto y paciencia — y esa construcción aguanta lluvia, viento y años. En El Hornero trabajamos la obra con la misma idea: prolijo, firme, hecho para quedarse.</p>
+    <div class="hero-botones">
+      <a href="#contacto" class="boton">Pedir un presupuesto</a>
+      <a href="#muro" class="boton secundario">Ver la obra en marcha</a>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" class="seccion">
+  <div class="envoltorio nosotros-grid">
+    <div>
+      <h2>Nosotros</h2>
+      <p>Somos una empresa de construcción y refacciones que encara la obra de punta a punta: desde los cimientos hasta el detalle final de terminación. Cada trabajo se planifica antes de empezar y se acompaña hasta que queda entregado.</p>
+      <p>Coordinamos los oficios necesarios para tu obra — albañilería, electricidad, revoques, cerámicos, aberturas — para que no tengas que andar llamando a nadie más.</p>
+    </div>
+    <div class="nosotros-imagen">
+      <img src="imagenes/nosotros.jpg" alt="El Hornero en obra">
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="seccion seccion-alterna">
+  <div class="envoltorio">
+    <h2 class="titulo-seccion">Servicios</h2>
+    <div class="servicios-grid">
+      <div class="servicio">
+        <img class="servicio-foto" src="imagenes/albanileria.jpg" alt="Albañilería y obra gruesa">
+        <div class="servicio-texto">
+        <span class="icono">🧱</span>
+        <h3>Albañilería &amp; obra gruesa</h3>
+        <p>Cimientos, levantamiento de mampostería, encadenados, carpetas, contrapisos y losas.</p>
+        </div>
+      </div>
+      <div class="servicio">
+        <img class="servicio-foto" src="imagenes/electricidad.jpg" alt="Electricidad">
+        <div class="servicio-texto">
+        <span class="icono">⚡</span>
+        <h3>Electricidad</h3>
+        <p>Instalaciones eléctricas residenciales y comerciales, cableados a nuevo, tableros, térmicas y luminarias.</p>
+        </div>
+      </div>
+      <div class="servicio">
+        <img class="servicio-foto" src="imagenes/ceramicos.jpg" alt="Cerámicos y porcelanatos">
+        <div class="servicio-texto">
+        <span class="icono">📐</span>
+        <h3>Cerámicos &amp; porcelanatos</h3>
+        <p>Revestimientos de pisos y paredes, colocación de cerámicos, porcelanatos de gran formato y zócalos.</p>
+        </div>
+      </div>
+      <div class="servicio">
+        <img class="servicio-foto" src="imagenes/revoques.jpg" alt="Revoques y tarquini">
+        <div class="servicio-texto">
+        <span class="icono">🎨</span>
+        <h3>Revoques &amp; tarquini</h3>
+        <p>Revoque grueso, fino, impermeabilizaciones, nivelado de paredes y revestimiento plástico tarquini / texturado.</p>
+        </div>
+      </div>
+      <div class="servicio">
+        <img class="servicio-foto" src="imagenes/refacciones.jpg" alt="Refacciones integrales">
+        <div class="servicio-texto">
+        <span class="icono">🔨</span>
+        <h3>Refacciones integrales</h3>
+        <p>Remodelación de ambientes, reformas integrales en cocinas y baños, arreglos de humedades y reformas generales.</p>
+        </div>
+      </div>
+      <div class="servicio">
+        <img class="servicio-foto" src="imagenes/aberturas.jpg" alt="Aberturas y carpintería">
+        <div class="servicio-texto">
+        <span class="icono">🏠</span>
+        <h3>Aberturas &amp; carpintería</h3>
+        <p>Colocación de marcos, puertas, ventanas, portones y amurado profesional.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trabajos" class="seccion seccion-alterna">
+  <div class="envoltorio">
+    <h2 class="titulo-seccion">Antes &amp; Después</h2>
+    <p style="margin-top:-24px; margin-bottom: 34px; color: var(--carbon-suave);">Tocá los botones para ver la transformación de cada trabajo.</p>
+    <div id="comparador-grid" class="comparador-grid">
+      <p style="color: var(--carbon-suave);">Cargando trabajos…</p>
+    </div>
+  </div>
+</section>
+
+<section id="muro" class="seccion">
+  <div class="envoltorio">
+    <div class="muro-encabezado">
+      <h2 style="margin:0;">Así avanza la obra</h2>
+      <p style="margin:0; color: var(--carbon-suave);">Fotos actualizadas directo desde el celular, obra por obra.</p>
+    </div>
+    <div id="muro-grid" class="muro-grid">
+      <p style="color: var(--carbon-suave);">Cargando fotos…</p>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="seccion contacto">
+  <div class="envoltorio contacto-grid">
+    <div>
+      <h2>Contacto</h2>
+      <p>Contanos qué necesitás y coordinamos una visita para presupuestar.</p>
+      <div class="contacto-datos">
+        <p class="contacto-fila">
+          <span class="contacto-icono">📞</span>
+          <a id="link-telefono" href="#">Cargando...</a>
+        </p>
+        <p class="contacto-fila">
+          <span class="contacto-icono contacto-icono-whatsapp" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor">
+              <path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.24.62 4.33 1.7 6.13L4 29l8.02-1.66a12 12 0 0 0 4 .68c6.62 0 12.02-5.4 12.02-12.02C28.04 8.4 22.64 3 16.02 3zm0 21.86c-1.9 0-3.68-.5-5.22-1.44l-.37-.22-4.76.98.98-4.64-.24-.38a9.83 9.83 0 0 1-1.5-5.14c0-5.42 4.4-9.82 9.83-9.82 5.42 0 9.82 4.4 9.82 9.82 0 5.42-4.4 9.84-9.54 9.84zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.73-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.4.24-.7.24-1.3.17-1.4-.07-.12-.27-.2-.56-.35z"/>
+            </svg>
+          </span>
+          <a id="link-whatsapp" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+        </p>
+        <p class="contacto-fila">
+          <span class="contacto-icono">📍</span>
+          <span id="texto-zona">Cargando...</span>
+        </p>
+      </div>
+    </div>
+    <div class="contacto-mapa">
+      <iframe id="mapa-zona" src="" width="100%" height="320" style="border:0; border-radius:14px;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="pie">© <span id="anio"></span> El Hornero</div>
+
+<a id="whatsapp-flotante" class="whatsapp-flotante" href="#" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.24.62 4.33 1.7 6.13L4 29l8.02-1.66a12 12 0 0 0 4 .68c6.62 0 12.02-5.4 12.02-12.02C28.04 8.4 22.64 3 16.02 3zm0 21.86c-1.9 0-3.68-.5-5.22-1.44l-.37-.22-4.76.98.98-4.64-.24-.38a9.83 9.83 0 0 1-1.5-5.14c0-5.42 4.4-9.82 9.83-9.82 5.42 0 9.82 4.4 9.82 9.82 0 5.42-4.4 9.84-9.54 9.84zm5.4-7.36c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.36-1.46-.87-.78-1.46-1.73-1.63-2.03-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5h-.56c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.4.24-.7.24-1.3.17-1.4-.07-.12-.27-.2-.56-.35z"/></svg>
+</a>
+
+<script src="config.js"></script>
+<script>
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  // Le agrega sombra al encabezado cuando la persona baja la página
+  const encabezado = document.querySelector('.encabezado');
+  window.addEventListener('scroll', () => {
+    encabezado.classList.toggle('con-sombra', window.scrollY > 10);
+  });
+
+  // Completa los datos de contacto desde config.js
+  document.getElementById('link-telefono').href = 'tel:' + CONFIG.TELEFONO;
+  document.getElementById('link-telefono').textContent = CONFIG.TELEFONO;
+  document.getElementById('link-whatsapp').href = 'https://wa.me/' + CONFIG.WHATSAPP;
+  document.getElementById('whatsapp-flotante').href = 'https://wa.me/' + CONFIG.WHATSAPP;
+  document.getElementById('texto-zona').textContent = CONFIG.ZONA;
+  document.getElementById('mapa-zona').src =
+    'https://www.google.com/maps?q=' + encodeURIComponent(CONFIG.ZONA) + '&output=embed';
+
+  // Botones de Antes / Después (se conectan solos después de que
+  // cargarAntesDespues() arme las tarjetas)
+  function conectarBotonesComparador() {
+    document.querySelectorAll('.comparador').forEach(comparador => {
+      const imgAntes = comparador.querySelector('[data-antes]');
+      const imgDespues = comparador.querySelector('[data-despues]');
+      const botones = comparador.querySelectorAll('.comparador-boton');
+      botones.forEach(boton => {
+        boton.addEventListener('click', () => {
+          botones.forEach(b => b.classList.remove('activo'));
+          boton.classList.add('activo');
+          const mostrar = boton.dataset.mostrar;
+          imgAntes.style.display = mostrar === 'antes' ? 'block' : 'none';
+          imgDespues.style.display = mostrar === 'despues' ? 'block' : 'none';
+        });
+      });
+    });
+  }
+
+  // Trae las fotos de "antes" y "después" directamente desde Cloudinary,
+  // las empareja en el orden en que se subieron, y arma los comparadores.
+  async function cargarAntesDespues() {
+    const cont = document.getElementById('comparador-grid');
+    try {
+      const [respAntes, respDespues] = await Promise.all([
+        fetch(`https://res.cloudinary.com/${CONFIG.CLOUD_NAME}/image/list/${CONFIG.ETIQUETA_ANTES}.json`),
+        fetch(`https://res.cloudinary.com/${CONFIG.CLOUD_NAME}/image/list/${CONFIG.ETIQUETA_DESPUES}.json`)
+      ]);
+      if (!respAntes.ok || !respDespues.ok) throw new Error('no se pudo leer la lista');
+
+      const datosAntes = await respAntes.json();
+      const datosDespues = await respDespues.json();
+      const ordenar = lista => lista.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+      const listaAntes = ordenar(datosAntes.resources || []);
+      const listaDespues = ordenar(datosDespues.resources || []);
+
+      const cantidad = Math.min(listaAntes.length, listaDespues.length);
+      if (cantidad === 0) {
+        cont.innerHTML = `<div class="muro-vacio">Todavía no hay trabajos cargados. <a href="subir.html">Subí el primero</a>.</div>`;
+        return;
+      }
+
+      const urlDe = r => `https://res.cloudinary.com/${CONFIG.CLOUD_NAME}/image/upload/w_700,q_auto,f_auto/${r.public_id}.${r.format}`;
+      let html = '';
+      for (let i = 0; i < cantidad; i++) {
+        html += `
+          <div class="comparador">
+            <div class="comparador-imagen">
+              <img src="${urlDe(listaAntes[i])}" data-antes alt="Antes del trabajo ${i + 1}" style="display:block;">
+              <img src="${urlDe(listaDespues[i])}" data-despues alt="Después del trabajo ${i + 1}" style="display:none;">
+            </div>
+            <div class="comparador-botones">
+              <button class="comparador-boton activo" data-mostrar="antes">Antes</button>
+              <button class="comparador-boton" data-mostrar="despues">Después</button>
+            </div>
+          </div>`;
+      }
+      cont.innerHTML = html;
+      conectarBotonesComparador();
+    } catch (err) {
+      cont.innerHTML = `<div class="muro-error">No se pudieron cargar los trabajos todavía.</div>`;
+    }
+  }
+
+  cargarAntesDespues();
+
+  // Trae la lista de fotos del "muro" directamente desde Cloudinary,
+  // usando la etiqueta configurada en config.js. No hace falta ningún
+  // servidor propio: el archivo JSON lo genera Cloudinary solo.
+  async function cargarMuro() {
+    const cont = document.getElementById('muro-grid');
+    const urlLista = `https://res.cloudinary.com/${CONFIG.CLOUD_NAME}/image/list/${CONFIG.ETIQUETA_MURO}.json`;
+
+    try {
+      const resp = await fetch(urlLista);
+      if (!resp.ok) throw new Error('no se pudo leer la lista');
+      const datos = await resp.json();
+      const recursos = datos.resources || [];
+
+      if (recursos.length === 0) {
+        cont.innerHTML = `<div class="muro-vacio">Todavía no hay fotos subidas. <a href="subir.html">Subí la primera</a>.</div>`;
+        return;
+      }
+
+      // Más nuevas primero
+      recursos.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+      cont.innerHTML = recursos.map(r => {
+        const src = `https://res.cloudinary.com/${CONFIG.CLOUD_NAME}/image/upload/w_500,q_auto,f_auto/${r.public_id}.${r.format}`;
+        return `<div class="muro-foto"><img src="${src}" loading="lazy" alt="Foto de la obra"></div>`;
+      }).join('');
+    } catch (err) {
+      cont.innerHTML = `<div class="muro-error">No se pudieron cargar las fotos todavía. Revisá que CLOUD_NAME esté bien puesto en config.js, y que el "Resource list" esté habilitado en Cloudinary.</div>`;
+    }
+  }
+
+  cargarMuro();
+</script>
+
+</body>
+</html>
